@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+/* Khai báo và ép font Quicksand (nét tròn trịa, dễ thương) cho toàn bộ trang web */
+@theme {
+  --font-sans: 'Quicksand', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background-color: #f8fafc;
+  color: #1e293b;
+  font-family: var(--font-sans);
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #print-bill, #print-bill * {
+    visibility: visible;
+  }
+  #print-bill {
+    display: block !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80mm;
+  }
+}
+
+/* Hiệu ứng logo từ từ hiện ra và phóng nhẹ khi tải trang */
+@keyframes logoFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-logo-fade-in {
+  animation: logoFadeIn 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
